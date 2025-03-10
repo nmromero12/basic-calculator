@@ -1,0 +1,35 @@
+body {
+    height: 100vh; /* Take up full viewport height */
+    margin: 0; /* Remove default browser margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    
+  }
+
+.calculator-container {
+    display: flex;
+    background-color:white;
+    width: 500px;
+    height: 640px;
+    flex-direction: column;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}
+
+.display-container {
+    display: flex;
+    background-color: black;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.display-box {
+    background-color: lightgreen;
+    height: 100px;
+    width: 400px;
+    border-radius: 10px;
+}
