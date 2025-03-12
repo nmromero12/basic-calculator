@@ -1,11 +1,12 @@
 //Basic Operations
+const defaultValue = 0;
 let boolean = false;
 let numOne = '';
 let numTwo = '';
 let operator;
 
 const calculatorContent = document.querySelector('.display-box');
-calculatorContent.textContent = 0;
+calculatorContent.textContent = defaultValue;
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
@@ -51,6 +52,16 @@ buttons.forEach(button => {
             calculatorContent.textContent = numTwo;
         }
     })
+})
+
+const clearButton = document.querySelector("#clear");
+
+clearButton.addEventListener('click', () => {
+    calculatorContent.textContent = defaultValue;
+    numOne = '';
+    numTwo = '';
+    boolean = false;
+
 })
 
 
