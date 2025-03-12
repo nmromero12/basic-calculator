@@ -1,6 +1,7 @@
 //Basic Operations
 const defaultValue = 0;
-let boolean = false;
+let numBoolean = false;
+let operatorBoolean = false;
 let numOne = '';
 let numTwo = '';
 let operator;
@@ -44,7 +45,7 @@ const buttons = document.querySelectorAll('[data-num]');
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (!boolean) {
+        if (!numBoolean) {
             numOne += button.getAttribute('data-num');
             calculatorContent.textContent = numOne;
         } else {
@@ -60,7 +61,7 @@ clearButton.addEventListener('click', () => {
     calculatorContent.textContent = defaultValue;
     numOne = '';
     numTwo = '';
-    boolean = false;
+    numBoolean = false;
 
 })
 
@@ -68,28 +69,33 @@ clearButton.addEventListener('click', () => {
 const addButton = document.querySelector("#add")
 
 addButton.addEventListener('click', () => {
-    boolean = !boolean;
     operator = add;
+    if (operatorBoolean) {
+        equalFunction();
+    } else {
+        numBoolean = !numBoolean
+        operatorBoolean =!operatorBoolean;
+    }
 
 })
 const minusButton = document.querySelector("#minus")
 
 minusButton.addEventListener('click', () => {
-    boolean = !boolean;
+    numBoolean = !numBoolean;
     operator = subtract;
 
 })
 const multiplyButton = document.querySelector("#multiplication")
 
 multiplyButton.addEventListener('click', () => {
-    boolean = !boolean;
+    numBoolean = !numBoolean;
     operator = multiply;
 
 })
 const divisionButton = document.querySelector("#division")
 
 divisionButton.addEventListener('click', () => {
-    boolean = !boolean;
+    numBoolean = !numBoolean;
     operator = divide;
 
 })
@@ -98,13 +104,22 @@ divisionButton.addEventListener('click', () => {
 const equalButton = document.querySelector("#equal");
 
 equalButton.addEventListener('click', () => {
-    boolean = !boolean;
-    numOne = operate(operator, numOne, numTwo);
-    calculatorContent.textContent=numOne;
-    numTwo = '';
+    equalFunction();
 
 
 })
+
+
+function equalFunction() {
+    numOne = operate(operator, numOne, numTwo);
+    calculatorContent.textContent=numOne;
+    numTwo = '';
+}
+
+
+function repeatedOperator() {
+    
+}
 
 
 
