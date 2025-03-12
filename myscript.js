@@ -5,6 +5,7 @@ let numTwo = '';
 let operator;
 
 const calculatorContent = document.querySelector('.display-box');
+calculatorContent.textContent = 0;
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
@@ -32,7 +33,7 @@ function exponent(numOne, numTwo) {
 
 
 function operate(operator, numOne, numTwo) {
-    return operator(numOne, numTwo);
+    return operator(Number(numOne), Number(numTwo));
 }
 
 
@@ -86,7 +87,12 @@ divisionButton.addEventListener('click', () => {
 const equalButton = document.querySelector("#equal");
 
 equalButton.addEventListener('click', () => {
-    
+    boolean = !boolean;
+    numOne = operate(operator, numOne, numTwo);
+    calculatorContent.textContent=numOne;
+    numTwo = '';
+
+
 })
 
 
