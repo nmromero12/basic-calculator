@@ -61,3 +61,14 @@ button {
 .zero {
     width: 215px;
 }
+
+.display-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for consistent character width */
+    font-size: 40px; /* Large enough to be readable */
+    font-weight: bold; /* Make it bold for better visibility */
+    color: black; /* Dark color for good contrast */
+    padding-right: 15px; /* Add padding for breathing room */
+}
