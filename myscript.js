@@ -23,7 +23,7 @@ function multiply(numOne, numTwo) {
 
 function divide(numOne, numTwo) {
     if (numTwo == 0) {
-        return "Error";
+        return "ERROR";
     }
 
     return numOne/numTwo;
@@ -41,9 +41,9 @@ function operate(operator, numOne, numTwo) {
 
 //make all number buttons functioning
 
-const buttons = document.querySelectorAll('[data-num]');
+const numButtons = document.querySelectorAll('[data-num]');
 
-buttons.forEach(button => {
+numButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (!numBoolean) {
             numOne += button.getAttribute('data-num');
@@ -62,6 +62,7 @@ clearButton.addEventListener('click', () => {
     numOne = '';
     numTwo = '';
     numBoolean = false;
+    operatorBoolean = false;
 
 })
 
@@ -69,35 +70,32 @@ clearButton.addEventListener('click', () => {
 const addButton = document.querySelector("#add")
 
 addButton.addEventListener('click', () => {
+    repeatedOperator();
     operator = add;
-    if (operatorBoolean) {
-        equalFunction();
-    } else {
-        numBoolean = !numBoolean
-        operatorBoolean =!operatorBoolean;
-    }
+    
 
 })
 const minusButton = document.querySelector("#minus")
 
 minusButton.addEventListener('click', () => {
-    numBoolean = !numBoolean;
+    repeatedOperator();
     operator = subtract;
+    
 
 })
 const multiplyButton = document.querySelector("#multiplication")
 
 multiplyButton.addEventListener('click', () => {
-    numBoolean = !numBoolean;
+    repeatedOperator();
     operator = multiply;
+    
 
 })
 const divisionButton = document.querySelector("#division")
 
 divisionButton.addEventListener('click', () => {
-    numBoolean = !numBoolean;
+    repeatedOperator();
     operator = divide;
-
 })
 
 
@@ -118,7 +116,13 @@ function equalFunction() {
 
 
 function repeatedOperator() {
-    
+
+    if (operatorBoolean) {
+        equalFunction();
+    } else {
+        numBoolean = !numBoolean
+        operatorBoolean =!operatorBoolean;
+    }
 }
 
 
