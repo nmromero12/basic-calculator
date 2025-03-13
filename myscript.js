@@ -1,4 +1,4 @@
-//Basic Operations
+
 const defaultValue = 0;
 let numBoolean = false;
 let operatorBoolean = false;
@@ -9,6 +9,8 @@ let operator;
 const calculatorContent = document.querySelector('.display-box');
 calculatorContent.textContent = defaultValue;
 
+
+//Basic Operations
 function add(numOne, numTwo) {
     return numOne + numTwo;
 }
@@ -55,6 +57,9 @@ numButtons.forEach(button => {
     })
 })
 
+
+
+//functionality to operator buttons.
 const clearButton = document.querySelector("#clear");
 
 clearButton.addEventListener('click', () => {
@@ -106,6 +111,16 @@ equalButton.addEventListener('click', () => {
 
 
 })
+
+const exponentButton = document.querySelector("#exponent");
+
+exponentButton.addEventListener('click', () => {
+    repeatedOperator();
+    operator = exponent;
+})
+
+
+//functionality for chaining operators and equals. 
 
 
 function equalFunction() {
