@@ -124,9 +124,11 @@ exponentButton.addEventListener('click', () => {
 
 
 function equalFunction() {
+    if (numOne != '' && numTwo != '' && operator) {
     numOne = operate(operator, numOne, numTwo);
     calculatorContent.textContent=numOne;
     numTwo = '';
+    }
 }
 
 
